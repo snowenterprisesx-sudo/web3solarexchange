@@ -1,0 +1,179 @@
+Build a FULL production-ready full stack Web3 application with the following structure:
+
+# 📁 PROJECT STRUCTURE
+
+/root
+/client  (React + Vite frontend)
+/server  (Node + Express backend)
+/contracts (Solidity smart contracts)
+.env
+README.md
+
+---
+
+# 🧠 SYSTEM OVERVIEW
+
+This is a PRIVATE SXP BRIDGE system using:
+
+* Mint/Burn wrapped token model (wSXP)
+* NO double funding requirement
+* Backend verification layer
+* Wallet-based transaction signing
+
+---
+
+# 🔷 CONTRACTS (Solidity)
+
+Create:
+
+1. WSXP.sol
+
+* ERC20 token
+* mint(address, amount)
+* burn(address, amount)
+
+2. Vault.sol
+
+* Holds reserve funds
+* deposit()
+* release(address, amount)
+
+Use OpenZeppelin libraries.
+
+---
+
+# ⚙️ BACKEND (Node + Express)
+
+Install:
+
+* express
+* ethers
+* cors
+* dotenv
+* jsonwebtoken
+* bcrypt
+
+## Core Features:
+
+1. RPC connections (ETH + BNB)
+2. Deposit listener
+3. Mint wSXP when deposit detected
+4. Burn wSXP when user withdraws
+5. Release funds from vault
+
+---
+
+## API ENDPOINTS
+
+POST /api/bridge/deposit
+POST /api/bridge/mint
+POST /api/bridge/burn
+GET /api/wallet/balance
+
+---
+
+## Example Logic:
+
+* Detect deposit → validate tx → mint wSXP
+* Detect burn → release funds
+
+---
+
+# 🖥️ FRONTEND (React + Tailwind)
+
+## Pages:
+
+1. Dashboard
+2. Bridge UI
+3. Wallet connect
+
+---
+
+## Features:
+
+* Connect MetaMask
+* Select:
+
+  * Source chain
+  * Destination chain
+  * Amount
+* Bridge button
+* Transaction status modal
+
+---
+
+## UI REQUIREMENTS (VERY IMPORTANT)
+
+* Luxury Y2K aesthetic
+* Pink + rose gold gradients
+* Glassmorphism cards
+* PERFECT alignment (no broken UI)
+* Fully responsive
+
+---
+
+## COMPONENTS:
+
+* Button (glow effect)
+* Card
+* Modal
+* Loader
+* Toast notifications
+
+---
+
+# 🔗 WALLET INTEGRATION
+
+Use ethers.js:
+
+* Connect wallet
+* Sign transactions
+* Send tx to contract
+
+---
+
+# 🔐 SECURITY
+
+* Validate all transactions server-side
+* Never expose private keys
+* Use environment variables
+
+---
+
+# 🌍 ENV VARIABLES
+
+RPC_URL_ETH=
+RPC_URL_BNB=
+PRIVATE_KEY=
+WSXP_CONTRACT=
+VAULT_CONTRACT=
+
+---
+
+# 🚀 DEPLOYMENT READY
+
+* Frontend runs with: npm run dev
+* Backend runs with: node server.js
+* Contracts compiled with Hardhat
+
+---
+
+# 🧪 FINAL REQUIREMENTS
+
+* All buttons must work
+* No placeholder logic
+* Clean folder structure
+* UI fully functional
+* Bridge flow complete:
+  deposit → verify → mint → burn → release
+
+---
+
+Generate:
+
+* All files
+* Full code
+* Setup instructions
+* Working UI preview
+
+Make it clean, connected, and production-ready.

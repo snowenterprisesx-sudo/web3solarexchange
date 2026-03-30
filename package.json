@@ -1,0 +1,20 @@
+{
+    "name":  "vault-omni-protocol",
+    "version":  "1.0.0",
+    "description":  "Full-stack Web3 DeFi application with yield farming, token launch, gasless transactions, bridge, and AI automation",
+    "private":  true,
+    "workspaces":  [
+                       "frontend",
+                       "backend",
+                       "contracts"
+                   ],
+    "scripts":  {
+                    "dev":  "concurrently \"npm run dev -w frontend\" \"npm run dev -w backend\"",
+                    "build":  "npm run build -w frontend \u0026\u0026 npm run build -w backend \u0026\u0026 npm run build -w contracts",
+                    "test":  "npm run test -w frontend \u0026\u0026 npm run test -w backend \u0026\u0026 npm run test -w contracts",
+                    "lint":  "npm run lint -w frontend \u0026\u0026 npm run lint -w backend \u0026\u0026 npm run lint -w contracts"
+                },
+    "devDependencies":  {
+                            "concurrently":  "^8.2.0"
+                        }
+}

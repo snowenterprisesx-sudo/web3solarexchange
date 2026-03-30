@@ -1,0 +1,284 @@
+Build a FULL-STACK PRODUCTION-READY WEB3 APPLICATION:
+
+"VAULT OMNI PROTOCOL — TOKEN LAUNCH + BRIDGE + YIELD DASHBOARD"
+
+This system MUST be fully wired end-to-end:
+Frontend (React) ↔ Backend (Node.js) ↔ Smart Contracts ↔ Wallet (MetaMask)
+
+CRITICAL RULES:
+- Use wallet-based signing for ALL user actions
+- DO NOT use backend private key for user transactions
+- NO STAKING FEATURES anywhere
+- All blockchain actions must be initiated from the user's wallet
+
+-----------------------------------
+🧱 TECH STACK
+-----------------------------------
+
+Frontend:
+- React (Vite)
+- TailwindCSS
+- Framer Motion
+- ethers.js
+- wagmi + viem (preferred) OR web3modal for wallet connect
+
+Backend:
+- Node.js (Express)
+- Prisma (PostgreSQL)
+- Multer (file upload)
+
+Blockchain:
+- ethers.js
+- Precompiled contracts (Token, Bridge)
+
+-----------------------------------
+🔐 WALLET SYSTEM (CORE)
+-----------------------------------
+
+Implement:
+
+- MetaMask + WalletConnect
+- Connect / Disconnect
+- Get address
+- Switch chain
+- Sign messages
+- Send transactions
+
+Create:
+
+/frontend/src/web3/wallet.js
+
+Functions:
+- connectWallet()
+- getProvider()
+- getSigner()
+- switchChain(chainId)
+- signMessage(message)
+
+-----------------------------------
+🌐 SUPPORTED CHAINS
+-----------------------------------
+
+- Ethereum
+- BNB Chain
+- Polygon
+- Arbitrum
+
+Maintain chain config map:
+
+const CHAINS = {
+  1: { name: "Ethereum", rpc: "..." },
+  56: { name: "BNB", rpc: "..." },
+  137: { name: "Polygon", rpc: "..." },
+  42161: { name: "Arbitrum", rpc: "..." }
+};
+
+-----------------------------------
+🪙 TOKEN LAUNCH STUDIO (CONNECTED)
+-----------------------------------
+
+Page: /create-token
+
+Flow:
+
+1. User connects wallet
+2. User fills form:
+   - name
+   - symbol
+   - supply
+   - decimals
+   - mintable
+   - burnable
+   - metadata
+3. Upload logo → backend (/api/upload)
+4. User clicks "Deploy Token"
+
+IMPORTANT:
+
+Deployment must be done via:
+👉 wallet signer (NOT backend)
+
+Frontend logic:
+
+const factory = new ethers.Contract(factoryAddress, abi, signer);
+await factory.createToken(name, symbol, supply);
+
+Return:
+- contract address
+- tx hash
+
+Store in DB via backend
+
+-----------------------------------
+🌉 BRIDGE UI (CONNECTED)
+-----------------------------------
+
+Page: /bridge
+
+Features:
+
+- select source chain
+- select destination chain
+- select token (include SXP support)
+- input amount
+
+Flow:
+
+1. User connects wallet
+2. Switch to source chain
+3. Approve token
+4. Call:
+
+BridgeLock.lock(amount, targetChain, targetAddress)
+
+5. Show tx status
+6. Backend relayer + validators handle release
+
+-----------------------------------
+💰 YIELD DASHBOARD (CONNECTED)
+-----------------------------------
+
+Page: /yield
+
+Display:
+
+- Aave pools
+- Venus pools
+- GMX pools
+
+For each pool:
+
+- APY
+- user balance
+- claimable rewards
+
+Buttons:
+
+- Deposit (wallet tx)
+- Withdraw (wallet tx)
+- Claim rewards (wallet tx)
+
+-----------------------------------
+🔍 AIRDROP + CLAIM UI
+-----------------------------------
+
+Page: /airdrops
+
+- Scan wallet
+- List claimable rewards
+
+Button:
+
+👉 "CLAIM ALL"
+
+Batch logic:
+- loop contracts
+- send transactions via wallet
+
+-----------------------------------
+📊 DASHBOARD
+-----------------------------------
+
+Page: /dashboard
+
+Show:
+
+- connected wallet
+- tokens created
+- bridge history
+- yield earnings
+- airdrops
+
+-----------------------------------
+📡 BACKEND API
+-----------------------------------
+
+POST /api/upload
+POST /api/token/save
+GET /api/tokens
+GET /api/bridge/history
+GET /api/yield/data
+
+-----------------------------------
+🖼 FILE UPLOAD
+-----------------------------------
+
+- multer
+- store in /uploads
+- return URL
+
+-----------------------------------
+💾 DATABASE MODELS
+-----------------------------------
+
+User:
+- id
+- walletAddress
+
+Token:
+- id
+- name
+- symbol
+- contractAddress
+- chain
+- logoUrl
+- metadata
+
+BridgeTx:
+- id
+- fromChain
+- toChain
+- amount
+- txHash
+
+-----------------------------------
+🎨 UI DESIGN (IMPORTANT)
+-----------------------------------
+
+Luxury Y2K:
+
+- pastel gradients (pink/purple)
+- glass cards
+- glowing buttons
+- animated counters
+- sparkles
+- premium fintech feel
+
+-----------------------------------
+🔐 SECURITY
+-----------------------------------
+
+- signature-based auth (wallet)
+- input validation
+- chain validation
+- prevent duplicate submissions
+
+-----------------------------------
+⚙️ ENV VARIABLES
+-----------------------------------
+
+RPC_URLS=
+FACTORY_CONTRACT=
+BRIDGE_LOCK=
+BRIDGE_RELEASE=
+
+-----------------------------------
+🚀 OUTPUT REQUIREMENTS
+-----------------------------------
+
+Generate FULL working system:
+
+1. Frontend (React + wallet integration)
+2. Backend (Express API)
+3. Token deployment via wallet signer
+4. Bridge interaction via wallet
+5. Yield UI connected to contracts
+6. Upload system working
+7. Dashboard fully populated
+
+NO PLACEHOLDERS.
+NO TODO.
+ALL FEATURES CONNECTED.
+
+-----------------------------------
+END

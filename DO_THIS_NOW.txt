@@ -1,0 +1,134 @@
+================================================================================
+                          DO THIS NOW
+================================================================================
+
+Your UI is ready. Follow these 6 steps to run it.
+
+================================================================================
+STEP 1: FIND YOUR PROJECT FOLDER
+================================================================================
+
+Look at Kiro (this IDE).
+
+Left sidebar = File Explorer
+
+Top of file tree = Your project path
+
+Example: C:\Users\snowe\Documents\WEB3
+
+Write it down: _________________________________
+
+================================================================================
+STEP 2: OPEN COMMAND PROMPT
+================================================================================
+
+Press: Windows Key + R
+
+Type: cmd
+
+Press: Enter
+
+A black window opens.
+
+================================================================================
+STEP 3: GO TO YOUR PROJECT
+================================================================================
+
+Type this (use YOUR path):
+
+cd C:\Users\snowe\Documents\WEB3
+
+Press: Enter
+
+================================================================================
+STEP 4: CHECK YOU'RE IN THE RIGHT PLACE
+================================================================================
+
+Type: dir
+
+Press: Enter
+
+Look for:
+  frontend/
+  backend/
+  contracts/
+  package.json
+
+If you see these, you're good!
+
+================================================================================
+STEP 5: RUN YOUR UI
+================================================================================
+
+Type: npm run dev
+
+Press: Enter
+
+Wait 10-15 seconds.
+
+Look for: Local: http://localhost:5173/
+
+================================================================================
+STEP 6: OPEN YOUR BROWSER
+================================================================================
+
+Go to: http://localhost:5173
+
+Your UI opens!
+
+================================================================================
+THAT'S IT!
+================================================================================
+
+You now have your UI running locally.
+
+You can:
+  ✓ Click through all 7 pages
+  ✓ Test all features
+  ✓ Make changes to code
+  ✓ Deploy to Vercel (optional)
+
+================================================================================
+NEED HELP?
+================================================================================
+
+Read these files:
+
+Quick Start:
+  → START_HERE_NOW.md
+  → QUICK_COMMAND_REFERENCE.md
+  → QUICK_START_CARD.txt
+
+Deployment:
+  → START_HERE_VERCEL_DEPLOYMENT.md
+
+Project Info:
+  → README.md
+  → FINAL_SUMMARY.txt
+
+Navigation:
+  → DOCUMENTATION_INDEX.md
+
+================================================================================
+REMEMBER
+================================================================================
+
+Your UI is at: http://localhost:5173
+
+Keep Command Prompt open.
+
+To stop: Ctrl + C
+
+To start again: npm run dev
+
+================================================================================
+LET'S GO!
+================================================================================
+
+Follow the 6 steps above.
+
+Your UI opens in 5 minutes.
+
+You've got this! 💪
+
+================================================================================

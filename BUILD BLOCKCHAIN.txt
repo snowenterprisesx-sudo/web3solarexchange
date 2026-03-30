@@ -1,0 +1,237 @@
+Build a FULL-STACK PRODUCTION-READY WEB3 APPLICATION:
+
+"VAULT OMNI PROTOCOL — TOKEN LAUNCH STUDIO + DEFI SYSTEM"
+
+This system MUST include FULLY CONNECTED functionality from:
+
+Frontend (React) → Backend (Node.js) → Smart Contracts (Solidity)
+
+NO placeholders. All features must be wired and functional.
+
+-----------------------------------
+🧱 TECH STACK
+-----------------------------------
+
+Frontend:
+- React (Vite)
+- TailwindCSS
+- Framer Motion
+- ethers.js
+
+Backend:
+- Node.js (Express)
+- Multer (file upload)
+- PostgreSQL (Prisma ORM)
+
+Blockchain:
+- ethers.js
+- Hardhat (deployment)
+
+-----------------------------------
+🌐 CORE FEATURE: TOKEN LAUNCH STUDIO
+-----------------------------------
+
+Create a FULL PAGE:
+
+/create-token
+
+This page must allow users to:
+
+1. Connect MetaMask wallet
+2. Input token details:
+   - Name
+   - Symbol
+   - Total Supply
+   - Decimals
+   - Mintable (true/false)
+   - Burnable (true/false)
+
+3. Upload token logo:
+   - drag & drop UI
+   - preview image before upload
+
+4. Input metadata:
+   - Website
+   - Explorer URL
+   - Wallet support
+   - Community links
+   - Source code link
+   - API ID
+   - Chain selection (ETH / BNB / Polygon / Arbitrum)
+   - Category tags
+
+-----------------------------------
+🎨 UI REQUIREMENTS (IMPORTANT)
+-----------------------------------
+
+Luxury Y2K aesthetic:
+
+- pastel gradients (pink / purple)
+- glassmorphism cards
+- glowing neon buttons
+- animated inputs
+- sparkles / particles
+- smooth transitions
+
+-----------------------------------
+🔗 FRONTEND → BACKEND FLOW
+-----------------------------------
+
+On "Deploy Token" button:
+
+1. Validate form inputs
+2. Upload logo to backend
+3. Send request to backend:
+
+POST /api/token/create
+
+Body:
+{
+  name,
+  symbol,
+  supply,
+  decimals,
+  mintable,
+  burnable,
+  metadata,
+  walletAddress
+}
+
+-----------------------------------
+🖼 FILE UPLOAD SYSTEM
+-----------------------------------
+
+Backend must:
+
+- Use multer
+- Store images in /uploads
+- Return image URL
+
+-----------------------------------
+⚙️ BACKEND TOKEN DEPLOYMENT
+-----------------------------------
+
+Create service:
+
+/backend/services/tokenService.js
+
+Function:
+
+deployToken(data)
+
+Logic:
+
+1. Connect to RPC using ethers.js
+2. Load private key from .env
+3. Deploy ERC-20 contract dynamically
+4. Pass parameters:
+   - name
+   - symbol
+   - supply
+
+5. Wait for deployment
+6. Return contract address
+
+-----------------------------------
+📜 SMART CONTRACT REQUIREMENTS
+-----------------------------------
+
+Generate dynamic ERC-20 contract:
+
+VaultToken.sol must support:
+
+- name
+- symbol
+- initial supply
+- optional mint()
+- optional burn()
+
+-----------------------------------
+📡 API ROUTES
+-----------------------------------
+
+POST /api/token/create
+POST /api/upload
+GET /api/tokens
+
+-----------------------------------
+💾 DATABASE MODELS (PRISMA)
+-----------------------------------
+
+Token:
+- id
+- name
+- symbol
+- supply
+- decimals
+- contractAddress
+- chain
+- logoUrl
+- metadata (JSON)
+- owner
+- createdAt
+
+-----------------------------------
+📊 DASHBOARD PAGE
+-----------------------------------
+
+/dashboard
+
+Display:
+
+- User’s created tokens
+- Token logo
+- Contract address
+- Supply
+- Chain
+
+-----------------------------------
+🌉 CHAIN SUPPORT
+-----------------------------------
+
+Allow deployment to:
+
+- Ethereum
+- BNB Chain
+- Polygon
+- Arbitrum
+
+Use dynamic RPC selection
+
+-----------------------------------
+🔐 SECURITY
+-----------------------------------
+
+- Validate wallet signature
+- Validate inputs
+- Prevent empty deployments
+
+-----------------------------------
+⚙️ ENV VARIABLES
+-----------------------------------
+
+PRIVATE_KEY=
+ETH_RPC=
+BNB_RPC=
+POLYGON_RPC=
+ARB_RPC=
+
+-----------------------------------
+🚀 OUTPUT REQUIREMENTS
+-----------------------------------
+
+Generate FULL working system:
+
+1. Frontend (React fully styled UI)
+2. Backend (Express API fully wired)
+3. Smart contract (ERC-20 dynamic)
+4. Upload system working
+5. Deployment logic working
+6. Dashboard showing tokens
+
+NO TODO COMMENTS.
+NO PLACEHOLDERS.
+ALL CODE COMPLETE.
+
+-----------------------------------
+END

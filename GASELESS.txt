@@ -1,0 +1,248 @@
+Build a FULL-STACK PRODUCTION-READY WEB3 APPLICATION:
+
+"VAULT OMNI PROTOCOL — DEFI ENGINE (AAVE + GMX + GASLESS)"
+
+This system MUST include REAL contract interactions and gasless transaction support.
+
+NO placeholders. All features must be fully wired.
+
+-----------------------------------
+🧱 TECH STACK
+-----------------------------------
+
+Frontend:
+- React (Vite)
+- TailwindCSS
+- Framer Motion
+- ethers.js
+- wagmi + viem
+- Web3Modal
+
+Backend:
+- Node.js (Express)
+- Prisma (PostgreSQL)
+
+Blockchain:
+- ethers.js
+- ERC-4337 (Account Abstraction)
+
+-----------------------------------
+🔐 WALLET + GASLESS SYSTEM (CRITICAL)
+-----------------------------------
+
+Implement TWO modes:
+
+1. Standard Wallet Mode:
+   - MetaMask
+   - User signs and pays gas
+
+2. Gasless Mode (ERC-4337):
+   - Smart Account
+   - Bundler + Paymaster
+   - Backend sponsors gas
+
+Create:
+
+/frontend/src/web3/smartAccount.js
+
+Use:
+- permissionless.js OR Biconomy SDK
+
+Functions:
+
+- createSmartAccount()
+- sendGaslessTransaction(tx)
+- estimateGasless(tx)
+
+-----------------------------------
+🌐 CHAIN CONFIG
+-----------------------------------
+
+Include:
+
+- Ethereum
+- Arbitrum (GMX primary)
+- Polygon
+
+-----------------------------------
+💰 AAVE INTEGRATION (REAL)
+-----------------------------------
+
+Use Aave v3 contracts:
+
+Frontend must call directly using signer:
+
+Functions:
+
+Deposit:
+- supply(asset, amount, onBehalfOf, referralCode)
+
+Withdraw:
+- withdraw(asset, amount, to)
+
+Claim rewards:
+- claimRewards()
+
+Example:
+
+const pool = new ethers.Contract(AAVE_POOL, abi, signer);
+await pool.supply(asset, amount, userAddress, 0);
+
+-----------------------------------
+📈 GMX INTEGRATION (REAL)
+-----------------------------------
+
+Use GMX contracts:
+
+- Router
+- RewardRouter
+
+Features:
+
+1. Buy GLP:
+await rewardRouter.mintAndStakeGlp(token, amount, 0, 0);
+
+2. Claim rewards:
+await rewardRouter.handleRewards(true, true, true, true, true, true, false);
+
+3. Unstake:
+await rewardRouter.unstakeAndRedeemGlp(tokenOut, glpAmount, 0, user);
+
+-----------------------------------
+📊 YIELD PAGE (FULLY WIRED)
+-----------------------------------
+
+Page: /yield
+
+Sections:
+
+Aave:
+- deposit
+- withdraw
+- claim
+
+GMX:
+- mint GLP
+- claim rewards
+- unstake
+
+Each action:
+
+- uses wallet signer OR gasless mode
+- shows tx status
+- updates UI after confirmation
+
+-----------------------------------
+⚡ GASLESS EXECUTION FLOW
+-----------------------------------
+
+If user selects GASLESS:
+
+1. Build transaction data
+2. Send to backend paymaster
+3. Backend sends to bundler
+4. Smart account executes
+
+Backend endpoint:
+
+POST /api/gasless/execute
+
+-----------------------------------
+🧠 BACKEND GASLESS SERVICE
+-----------------------------------
+
+/backend/services/gaslessService.js
+
+Functions:
+
+- sponsorTransaction(txData)
+- sendToBundler()
+- return userOpHash
+
+-----------------------------------
+🔍 UI TOGGLE
+-----------------------------------
+
+Add toggle:
+
+[ Standard Mode ] [ Gasless Mode ]
+
+-----------------------------------
+📊 DASHBOARD
+-----------------------------------
+
+Show:
+
+- wallet address
+- smart account address
+- balances
+- yield earnings
+- pending rewards
+
+-----------------------------------
+🌉 BRIDGE (CONNECTED)
+-----------------------------------
+
+Use wallet or gasless:
+
+- call BridgeLock contract
+- show tx progress
+
+-----------------------------------
+🔐 SECURITY
+-----------------------------------
+
+- validate chain before tx
+- validate contract addresses
+- prevent duplicate tx
+- verify userOp before sending
+
+-----------------------------------
+⚙️ ENV VARIABLES
+-----------------------------------
+
+RPC_URLS=
+AAVE_POOL=
+GMX_ROUTER=
+PAYMASTER_KEY=
+BUNDLER_URL=
+
+-----------------------------------
+🎨 UI DESIGN
+-----------------------------------
+
+Luxury Y2K:
+
+- glowing glass UI
+- pastel pink/purple gradients
+- animated stats
+- premium fintech dashboard
+
+-----------------------------------
+🚀 OUTPUT REQUIREMENTS
+-----------------------------------
+
+Generate FULL working system:
+
+1. Frontend:
+   - wallet connect
+   - Aave + GMX buttons WORKING
+   - gasless toggle WORKING
+
+2. Backend:
+   - gasless service
+   - bundler integration
+
+3. Web3:
+   - real contract calls
+   - transaction handling
+
+4. UI:
+   - fully styled dashboard
+
+NO TODO
+NO PLACEHOLDERS
+ALL FEATURES CONNECTED
+
+-----------------------------------
+END
